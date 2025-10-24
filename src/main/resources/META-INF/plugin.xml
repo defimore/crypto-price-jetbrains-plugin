@@ -42,12 +42,12 @@
     </ul>
     ]]></change-notes>
 
-    <idea-version since-build="231" until-build="251.*"/>
+    <idea-version since-build="223"/>
     
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <statusBarWidgetFactory implementation="com.defimore.crypto.CryptoPriceWidgetFactory"/>
+        <statusBarWidgetFactory id="CryptoPriceWidget" implementation="com.defimore.crypto.CryptoPriceWidgetFactory"/>
         <applicationConfigurable 
             parentId="tools" 
             instance="com.defimore.crypto.CryptoPluginConfigurable"

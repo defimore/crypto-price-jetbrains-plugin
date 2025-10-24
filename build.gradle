@@ -23,8 +23,8 @@ intellij {
 }
 
 patchPluginXml {
-    sinceBuild = '231'
-    untilBuild = '281.*'
+    sinceBuild = '223'  // Support IntelliJ IDEA 2022.3 and later
+    // Remove untilBuild to support all future IDE versions
 }
 
 // Ensure resources are included in the build
