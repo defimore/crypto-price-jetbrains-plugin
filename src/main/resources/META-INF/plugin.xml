@@ -1,0 +1,72 @@
+<idea-plugin>
+    <id>com.defimore.crypto-price-plugin</id>
+    <name>Crypto Price Display</name>
+    <version>1.0.0</version>
+    <vendor email="support@defimore.com" url="https://defimore.com">defimore</vendor>
+    
+    <!-- Plugin icon is automatically loaded from META-INF/pluginIcon.svg and pluginIcon_dark.svg -->
+
+    <description><![CDATA[
+    <h3>Crypto Price Display Plugin</h3>
+    <p>Display real-time cryptocurrency prices directly in your IDE status bar.</p>
+    
+    <h4>Features:</h4>
+    <ul>
+        <li>Real-time price updates from Binance API</li>
+        <li>Configurable cryptocurrency symbols</li>
+        <li>Customizable refresh intervals</li>
+        <li>Adjustable decimal precision</li>
+        <li>Status icons for connection status</li>
+        <li>Click for detailed price information</li>
+        <li>Right-click context menu with actions</li>
+        <li>Offline mode with cached data</li>
+        <li>Error recovery and retry mechanisms</li>
+    </ul>
+    
+    <h4>Supported Cryptocurrencies:</h4>
+    <p>BTC, ETH, and many more against USDT pairs.</p>
+    
+    <h4>Configuration:</h4>
+    <p>Access settings via Tools → Crypto Price Display or right-click the status bar widget.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h4>Version 1.0.0</h4>
+    <ul>
+        <li>Initial release</li>
+        <li>Real-time cryptocurrency price display</li>
+        <li>Configurable symbols and refresh intervals</li>
+        <li>Status bar integration with click interactions</li>
+        <li>Offline mode and error recovery</li>
+        <li>Comprehensive settings panel</li>
+    </ul>
+    ]]></change-notes>
+
+    <idea-version since-build="231" until-build="251.*"/>
+    
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <statusBarWidgetFactory implementation="com.defimore.crypto.CryptoPriceWidgetFactory"/>
+        <applicationConfigurable 
+            parentId="tools" 
+            instance="com.defimore.crypto.CryptoPluginConfigurable"
+            id="crypto.price.plugin.settings"
+            displayName="Crypto Price Display"/>
+        <applicationService serviceImplementation="com.defimore.crypto.service.impl.ConfigurationServiceImpl"/>
+    </extensions>
+
+    <actions>
+        <group id="CryptoPrice.ActionGroup" text="Crypto Price Display" description="Crypto Price Display Actions">
+            <action id="CryptoPrice.Settings" class="com.defimore.crypto.OpenSettingsAction"
+                    text="Settings..." description="Open crypto price plugin settings"
+                    icon="/icons/crypto-icon-16.svg"/>
+            <action id="CryptoPrice.Refresh" class="com.defimore.crypto.RefreshPricesAction"
+                    text="Refresh Prices" description="Refresh cryptocurrency prices immediately"
+                    icon="/icons/crypto-icon-16.svg"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+    </actions>
+    
+
+</idea-plugin>
