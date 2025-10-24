@@ -17,14 +17,14 @@ dependencies {
 }
 
 intellij {
-    version = '2023.1'
+    version = '2024.1'  // Updated to newer version for better compatibility
     type = 'IC'
     plugins = []
 }
 
 patchPluginXml {
     sinceBuild = '223'  // Support IntelliJ IDEA 2022.3 and later
-    // Remove untilBuild to support all future IDE versions
+    untilBuild = ''     // Support all future IDE versions (empty string removes the limit)
 }
 
 // Ensure resources are included in the build

@@ -12,7 +12,7 @@
     
     <h4>Features:</h4>
     <ul>
-        <li>Real-time price updates from Binance API</li>
+        <li>Real-time price updates</li>
         <li>Configurable cryptocurrency symbols</li>
         <li>Customizable refresh intervals</li>
         <li>Adjustable decimal precision</li>
